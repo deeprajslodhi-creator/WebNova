@@ -25,3 +25,28 @@
    justify-self: center;
 
  }
+ .container{
+   background-color: aqua;
+   width: 95vw;
+   height: 50vh;
+   border: 0.2em solid black;
+   border-radius: 1.5em;
+   margin-top: 2em;
+   display: flex;
+   justify-self: center;
+   justify-content: center;
+   align-items: center;
+ }
+ .box{
+   background-color: brown;
+   width: 5em;
+   height: 5em;
+   border: 0.3em solid yellow;
+   animation: animation1 5s ease-in-out infinite alternate-reverse;
+ }
+ @keyframes animation1 {
+   to{
+      transform: rotate(360deg);
+      background-color: chartreuse;
+   }
+ }
