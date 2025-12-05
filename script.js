@@ -198,6 +198,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
+
+  // --- Logout Confirmation ---
+  const logoutLinks = document.querySelectorAll('a[href="login.html"]');
+  logoutLinks.forEach(link => {
+    // Only apply to logout links (not the login page itself)
+    if (link.textContent.includes('Logout') || link.querySelector('.fa-arrow-right-from-bracket')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (confirm('Are you sure you want to logout?')) {
+          window.location.href = 'login.html';
+        }
+      });
+    }
+  });
+
+  // --- Profile Save Button ---
+  const saveButtons = document.querySelectorAll('button[type="button"]');
+  saveButtons.forEach(btn => {
+    if (btn.textContent.includes('Save Changes')) {
+      btn.addEventListener('click', () => {
+        alert('Profile settings saved successfully! ✓');
+      });
+    }
+  });
 });
 
 // Add Keyframes for fade in js-created elements

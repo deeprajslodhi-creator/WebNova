@@ -808,3 +808,26 @@ h2 {
 .features-list li i {
     color: var(--success);
 }
+
+/* Responsive fixes for Profile and Pricing */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-cover {
+        margin-bottom: 6rem;
+    }
+
+    .profile-avatar-section {
+        left: 20px;
+    }
+
+    .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card.popular {
+        transform: scale(1);
+    }
+}
