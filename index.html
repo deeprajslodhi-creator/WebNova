@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -12,8 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
@@ -21,15 +23,15 @@
                 <i class="fa-brands fa-cloudunvers"></i>
                 <span>CloudBox</span>
             </div>
-            
+
             <ul class="nav-links">
                 <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li><a href="#"><i class="fa-solid fa-folder-open"></i> My Files</a></li>
                 <li><a href="#"><i class="fa-solid fa-clock"></i> Recent</a></li>
                 <li><a href="#"><i class="fa-solid fa-star"></i> Favorites</a></li>
                 <li class="spacer"></li>
-                <li><a href="#"><i class="fa-solid fa-trash"></i> Trash</a></li>
-                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                <li><a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+                <li><a href="profile.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
             </ul>
 
             <div class="storage-widget">
@@ -41,7 +43,7 @@
                     <div class="progress-fill" style="width: 75%"></div>
                 </div>
                 <p class="storage-text">15 GB of 20 GB used</p>
-                <button class="upgrade-btn">Upgrade Plan</button>
+                <a href="storage.html"><button class="upgrade-btn">Upgrade Plan</button></a>
             </div>
         </nav>
 
@@ -68,7 +70,7 @@
 
             <!-- Dashboard Content -->
             <div class="content-wrapper">
-                
+
                 <section class="quick-access">
                     <h2>Quick Access</h2>
                     <div class="cards-grid">
@@ -110,7 +112,7 @@
                             <i class="fa-solid fa-plus"></i> New Upload
                         </button>
                     </div>
-                    
+
                     <div class="files-table-container">
                         <table class="files-table">
                             <thead>
@@ -178,4 +180,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

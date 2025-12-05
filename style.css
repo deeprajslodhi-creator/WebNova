@@ -44,14 +44,16 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    overflow: hidden; /* App feel */
+    overflow: hidden;
+    /* App feel */
     height: 100vh;
 }
 
 /* Layout Grid */
 .app-container {
     display: grid;
-    grid-template-columns: 260px 1fr; /* Sidebar | Main */
+    grid-template-columns: 260px 1fr;
+    /* Sidebar | Main */
     height: 100vh;
 }
 
@@ -104,7 +106,8 @@ body {
     transition: all 0.2s ease;
 }
 
-.nav-links a:hover, .nav-links li.active a {
+.nav-links a:hover,
+.nav-links li.active a {
     background-color: var(--accent-color);
     color: white;
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
@@ -112,7 +115,8 @@ body {
 
 /* Storage Widget */
 .storage-widget {
-    background-color: var(--app-bg); /* Fallback */
+    background-color: var(--app-bg);
+    /* Fallback */
     background: var(--bg-color);
     padding: 1.5rem;
     border-radius: var(--radius-lg);
@@ -133,11 +137,11 @@ body {
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 0.5rem;
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] .progress-bar {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .progress-fill {
@@ -184,7 +188,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255,255,255,0); /* Transparent for scroll effect */
+    background-color: rgba(255, 255, 255, 0);
+    /* Transparent for scroll effect */
     backdrop-filter: blur(10px);
     z-index: 50;
 }
@@ -299,10 +304,25 @@ h2 {
     font-size: 1.5rem;
 }
 
-.card.audio .icon-box { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
-.card.image .icon-box { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-.card.video .icon-box { background: rgba(244, 63, 94, 0.1); color: #f43f5e; }
-.card.doc .icon-box { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.card.audio .icon-box {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+}
+
+.card.image .icon-box {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.card.video .icon-box {
+    background: rgba(244, 63, 94, 0.1);
+    color: #f43f5e;
+}
+
+.card.doc .icon-box {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
 
 .card-info h3 {
     font-size: 1rem;
@@ -354,7 +374,8 @@ h2 {
     min-width: 600px;
 }
 
-.files-table th, .files-table td {
+.files-table th,
+.files-table td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid var(--glass-border);
@@ -381,9 +402,17 @@ h2 {
     font-size: 1.2rem;
 }
 
-.pdf-icon { color: #ef4444; }
-.image-icon { color: #8b5cf6; }
-.js-icon { color: #f59e0b; }
+.pdf-icon {
+    color: #ef4444;
+}
+
+.image-icon {
+    color: #8b5cf6;
+}
+
+.js-icon {
+    color: #f59e0b;
+}
 
 .action-btn {
     background: transparent;
@@ -462,7 +491,8 @@ h2 {
 
 .drop-zone:hover {
     border-color: var(--accent-color);
-    background-color: rgba(79, 70, 229, 0.05); /* Faint accent bg */
+    background-color: rgba(79, 70, 229, 0.05);
+    /* Faint accent bg */
 }
 
 .drop-zone i {
@@ -486,13 +516,19 @@ h2 {
     .app-container {
         grid-template-columns: 80px 1fr;
     }
-    .logo span, .nav-links a span, .storage-widget, .upgrade-btn {
+
+    .logo span,
+    .nav-links a span,
+    .storage-widget,
+    .upgrade-btn {
         display: none;
     }
+
     .nav-links a {
         justify-content: center;
         padding: 15px;
     }
+
     .logo {
         justify-content: center;
     }
@@ -502,8 +538,10 @@ h2 {
     .app-container {
         grid-template-columns: 1fr;
     }
+
     .sidebar {
-        display: none; /* Hide sidebar on mobile, use hamburger */
+        display: none;
+        /* Hide sidebar on mobile, use hamburger */
         position: fixed;
         left: 0;
         top: 0;
@@ -511,20 +549,23 @@ h2 {
         width: 260px;
         z-index: 200;
     }
-    
+
     .sidebar.active {
         display: flex;
     }
-    
+
     /* Restore helper elements in sidebar when it opens */
-    .sidebar.active .logo span, 
-    .sidebar.active .nav-links a span, 
+    .sidebar.active .logo span,
+    .sidebar.active .nav-links a span,
     .sidebar.active .storage-widget {
-        display: block; /* Or flex as appropriate */
+        display: block;
+        /* Or flex as appropriate */
     }
+
     .sidebar.active .nav-links a {
         justify-content: flex-start;
     }
+
     .sidebar.active .logo {
         justify-content: flex-start;
     }
@@ -532,8 +573,238 @@ h2 {
     .mobile-menu-toggle {
         display: block;
     }
-    
+
     .search-bar {
-        display: none; /* Hide search on small screens or make it an icon */
+        display: none;
+        /* Hide search on small screens or make it an icon */
     }
+}
+
+/* --- New Styles for Auth, Profile, and Storage Pages --- */
+
+/* Authentication (Login/Register) */
+.auth-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f0f2f5 0%, #e2e8f0 100%);
+}
+
+[data-theme="dark"] .auth-body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.auth-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.auth-header {
+    margin-bottom: 2rem;
+}
+
+.auth-header i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: var(--bg-color);
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.auth-form input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.auth-btn:hover {
+    background: var(--accent-hover);
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.auth-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Profile Page */
+.profile-cover {
+    height: 200px;
+    background: linear-gradient(to right, #4f46e5, #8b5cf6);
+    border-radius: var(--radius-lg);
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.profile-avatar-section {
+    position: absolute;
+    bottom: -50px;
+    left: 40px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.profile-avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--card-bg);
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-info-header h2 {
+    margin-bottom: 0.2rem;
+    color: var(--text-primary);
+    /* Ensure text is visible on dark bg if shifted, but here it's below cover usually */
+}
+
+/* Fix for profile text relying on page flow */
+.profile-info-header {
+    padding-bottom: 10px;
+}
+
+/* Ensure dark mode text visibility */
+[data-theme="dark"] .profile-info-header h2 {
+    color: var(--text-primary);
+}
+
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.profile-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 2rem;
+}
+
+/* Storage / Pricing Page */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.price-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card.popular {
+    border: 2px solid var(--accent-color);
+    transform: scale(1.05);
+}
+
+.price-card.popular::before {
+    content: 'Best Value';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 1.5rem 0;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.features-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features-list li i {
+    color: var(--success);
 }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile | CloudBox</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation (Same as Index) -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-brands fa-cloudunvers"></i>
+                <span>CloudBox</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="index.html"><i class="fa-solid fa-folder-open"></i> My Files</a></li>
+                <li><a href="index.html"><i class="fa-solid fa-clock"></i> Recent</a></li>
+                <li><a href="#"><i class="fa-solid fa-star"></i> Favorites</a></li>
+                <li class="spacer"></li>
+                <li><a href="#"><i class="fa-solid fa-trash"></i> Trash</a></li>
+                <li class="active"><a href="profile.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+
+            <div class="storage-widget">
+                <div class="storage-info">
+                    <span>Storage</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <p class="storage-text">15 GB of 20 GB used</p>
+                <a href="storage.html"><button class="upgrade-btn">Upgrade Plan</button></a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-bar">
+                <div class="mobile-menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="user-actions" style="margin-left: auto;">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="profile">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Profile Content -->
+            <div class="content-wrapper">
+
+                <div class="profile-cover">
+                    <div class="profile-avatar-section">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="profile-avatar-large"
+                            alt="User">
+                        <div class="profile-info-header">
+                            <h2>Felix Anderson</h2>
+                            <p style="color: rgba(255,255,255,0.9);">felix.anderson@example.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-grid">
+                    <!-- Left Column: Settings -->
+                    <div class="left-col">
+                        <div class="profile-section">
+                            <h3 style="margin-bottom: 1.5rem;">Account Settings</h3>
+
+                            <form class="auth-form">
+                                <div class="form-group">
+                                    <label>Display Name</label>
+                                    <input type="text" value="Felix Anderson">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" value="felix.anderson@example.com" disabled
+                                        style="opacity: 0.7;">
+                                </div>
+                                <div class="form-group">
+                                    <label>Bio</label>
+                                    <input type="text" value="Product Designer & Developer">
+                                </div>
+                                <button type="button" class="auth-btn">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Security -->
+                    <div class="right-col">
+                        <div class="profile-section">
+                            <h3 style="margin-bottom: 1.5rem;">Security</h3>
+                            <button class="upgrade-btn" style="margin-bottom: 1rem;">Change Password</button>
+                            <button class="upgrade-btn" style="border-color: var(--danger); color: var(--danger);">Log
+                                Out</button>
+                        </div>
+
+                        <div class="profile-section">
+                            <h3 style="margin-bottom: 1.5rem;">App Preferences</h3>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Notifications</span>
+                                <input type="checkbox" checked>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Dark Mode Default</span>
+                                <input type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // DOM Elements
+  // DOM Elements - Select safely
   const themeToggle = document.getElementById('themeToggle');
   const body = document.body;
   const sidebar = document.querySelector('.sidebar');
@@ -12,128 +12,144 @@ document.addEventListener('DOMContentLoaded', () => {
   const filesTableBody = document.querySelector('.files-table tbody');
 
   // --- Theme Handling ---
+  // If no themeToggle exists (e.g. simple auth pages), just apply saved theme
   const savedTheme = localStorage.getItem('theme') || 'light';
   body.setAttribute('data-theme', savedTheme);
-  updateThemeIcon(savedTheme);
 
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  if (themeToggle) {
+    updateThemeIcon(savedTheme);
 
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-  });
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-  function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    if (theme === 'dark') {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    } else {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      const icon = themeToggle.querySelector('i');
+      if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
     }
   }
 
   // --- Mobile Sidebar ---
-  mobileMenuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-  });
-
-  // Close sidebar when clicking outside on mobile
-  document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768) {
-      if (!sidebar.contains(e.target) && !mobileMenuToggle.contains(e.target) && sidebar.classList.contains('active')) {
-        sidebar.classList.remove('active');
-      }
-    }
-  });
-
-  // --- Navigation Active State ---
-  navLinks.forEach(link => {
-    link.addEventListener('click', function () {
-      // Remove active from all
-      navLinks.forEach(l => l.classList.remove('active'));
-      // Add to clicked (skip spacer)
-      if (!this.classList.contains('spacer')) {
-        this.classList.add('active');
-      }
+  if (mobileMenuToggle && sidebar) {
+    mobileMenuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
     });
-  });
 
-  // --- Upload Modal Handling ---
-  uploadBtn.addEventListener('click', () => {
-    uploadOverlay.classList.remove('hidden');
-    // Small delay to allow display:block to apply before opacity transition
-    setTimeout(() => {
-      uploadOverlay.classList.add('active');
-    }, 10);
-  });
-
-  const closeUpload = () => {
-    uploadOverlay.classList.remove('active');
-    setTimeout(() => {
-      uploadOverlay.classList.add('hidden');
-    }, 300);
-  };
-
-  closeUploadBtn.addEventListener('click', closeUpload);
-  uploadOverlay.addEventListener('click', (e) => {
-    if (e.target === uploadOverlay) closeUpload();
-  });
-
-  // --- File Upload Simulation ---
-  dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropZone.style.borderColor = 'var(--accent-color)';
-    dropZone.style.backgroundColor = 'rgba(79, 70, 229, 0.1)';
-  });
-
-  dropZone.addEventListener('dragleave', (e) => {
-    e.preventDefault();
-    dropZone.style.borderColor = 'var(--glass-border)';
-    dropZone.style.backgroundColor = 'transparent';
-  });
-
-  dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.style.borderColor = 'var(--glass-border)';
-    dropZone.style.backgroundColor = 'transparent';
-
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      handleFiles(files);
-    }
-  });
-
-  dropZone.addEventListener('click', () => {
-    // Create a hidden file input
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.multiple = true;
-    input.onchange = (e) => {
-      handleFiles(e.target.files);
-    };
-    input.click();
-  });
-
-  function handleFiles(files) {
-    // Close modal
-    closeUpload();
-
-    // Simulate upload delay for each file
-    Array.from(files).forEach(file => {
-      // Visualize "Uploading..." (In a real app, this would be a toast)
-      console.log(`Uploading ${file.name}...`);
-
-      setTimeout(() => {
-        addFileToTable(file);
-      }, 1000 + Math.random() * 1000); // Random delay 1-2s
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!sidebar.contains(e.target) && !mobileMenuToggle.contains(e.target) && sidebar.classList.contains('active')) {
+          sidebar.classList.remove('active');
+        }
+      }
     });
   }
 
+  // --- Navigation Active State ---
+  if (navLinks.length > 0) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        // Remove active from all
+        navLinks.forEach(l => l.classList.remove('active'));
+        // Add to clicked (skip spacer)
+        if (!this.classList.contains('spacer')) {
+          this.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // --- Upload Modal Handling ---
+  if (uploadBtn && uploadOverlay && closeUploadBtn) {
+    uploadBtn.addEventListener('click', () => {
+      uploadOverlay.classList.remove('hidden');
+      // Small delay to allow display:block to apply before opacity transition
+      setTimeout(() => {
+        uploadOverlay.classList.add('active');
+      }, 10);
+    });
+
+    const closeUpload = () => {
+      uploadOverlay.classList.remove('active');
+      setTimeout(() => {
+        uploadOverlay.classList.add('hidden');
+      }, 300);
+    };
+
+    closeUploadBtn.addEventListener('click', closeUpload);
+    uploadOverlay.addEventListener('click', (e) => {
+      if (e.target === uploadOverlay) closeUpload();
+    });
+
+    // --- File Upload Simulation ---
+    if (dropZone) {
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--accent-color)';
+        dropZone.style.backgroundColor = 'rgba(79, 70, 229, 0.1)';
+      });
+
+      dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--glass-border)';
+        dropZone.style.backgroundColor = 'transparent';
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--glass-border)';
+        dropZone.style.backgroundColor = 'transparent';
+
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          handleFiles(files);
+        }
+      });
+
+      dropZone.addEventListener('click', () => {
+        // Create a hidden file input
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.multiple = true;
+        input.onchange = (e) => {
+          handleFiles(e.target.files);
+        };
+        input.click();
+      });
+
+      function handleFiles(files) {
+        // Close modal
+        closeUpload();
+
+        // Simulate upload delay for each file
+        Array.from(files).forEach(file => {
+          // Visualize "Uploading..." (In a real app, this would be a toast)
+          console.log(`Uploading ${file.name}...`);
+
+          if (filesTableBody) {
+            setTimeout(() => {
+              addFileToTable(file);
+            }, 1000 + Math.random() * 1000); // Random delay 1-2s
+          }
+        });
+      }
+    }
+  }
+
   function addFileToTable(file) {
+    if (!filesTableBody) return;
+
     const row = document.createElement('tr');
 
     // Determine icon based on type
