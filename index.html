@@ -2,17 +2,180 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CloudBox | Secure Storage</title>
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to Application</h1>
-    <p>thank your for install this app</p>
-    <button class="btn">click here</button>
-    <script src="script.js"></script>
-    <div class="container">
-        <div class="box"></div>
+    
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-brands fa-cloudunvers"></i>
+                <span>CloudBox</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-folder-open"></i> My Files</a></li>
+                <li><a href="#"><i class="fa-solid fa-clock"></i> Recent</a></li>
+                <li><a href="#"><i class="fa-solid fa-star"></i> Favorites</a></li>
+                <li class="spacer"></li>
+                <li><a href="#"><i class="fa-solid fa-trash"></i> Trash</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+
+            <div class="storage-widget">
+                <div class="storage-info">
+                    <span>Storage</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <p class="storage-text">15 GB of 20 GB used</p>
+                <button class="upgrade-btn">Upgrade Plan</button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-bar">
+                <div class="mobile-menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search your files...">
+                </div>
+                <div class="user-actions">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="profile">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-wrapper">
+                
+                <section class="quick-access">
+                    <h2>Quick Access</h2>
+                    <div class="cards-grid">
+                        <div class="card file-type-card audio">
+                            <div class="icon-box"><i class="fa-solid fa-music"></i></div>
+                            <div class="card-info">
+                                <h3>Music</h3>
+                                <p>120 Files</p>
+                            </div>
+                        </div>
+                        <div class="card file-type-card image">
+                            <div class="icon-box"><i class="fa-solid fa-image"></i></div>
+                            <div class="card-info">
+                                <h3>Images</h3>
+                                <p>1,430 Files</p>
+                            </div>
+                        </div>
+                        <div class="card file-type-card video">
+                            <div class="icon-box"><i class="fa-solid fa-video"></i></div>
+                            <div class="card-info">
+                                <h3>Videos</h3>
+                                <p>45 Files</p>
+                            </div>
+                        </div>
+                        <div class="card file-type-card doc">
+                            <div class="icon-box"><i class="fa-solid fa-file-invoice"></i></div>
+                            <div class="card-info">
+                                <h3>Docs</h3>
+                                <p>85 Files</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recent-files">
+                    <div class="section-header">
+                        <h2>Recent Files</h2>
+                        <button class="add-new-btn">
+                            <i class="fa-solid fa-plus"></i> New Upload
+                        </button>
+                    </div>
+                    
+                    <div class="files-table-container">
+                        <table class="files-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Size</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS will populate this -->
+                                <tr>
+                                    <td class="file-name">
+                                        <i class="fa-solid fa-file-pdf pdf-icon"></i>
+                                        <span>Project_Report_Final.pdf</span>
+                                    </td>
+                                    <td>2.4 MB</td>
+                                    <td>Document</td>
+                                    <td>Today, 10:30 AM</td>
+                                    <td><button class="action-btn"><i class="fa-solid fa-ellipsis"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="file-name">
+                                        <i class="fa-solid fa-image image-icon"></i>
+                                        <span>vacation_photo_01.jpg</span>
+                                    </td>
+                                    <td>4.1 MB</td>
+                                    <td>Image</td>
+                                    <td>Yesterday, 4:20 PM</td>
+                                    <td><button class="action-btn"><i class="fa-solid fa-ellipsis"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="file-name">
+                                        <i class="fa-brands fa-js js-icon"></i>
+                                        <span>main_script.js</span>
+                                    </td>
+                                    <td>12 KB</td>
+                                    <td>Code</td>
+                                    <td>Dec 02, 2025</td>
+                                    <td><button class="action-btn"><i class="fa-solid fa-ellipsis"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
     </div>
+
+    <!-- Upload Modal Overlay -->
+    <div class="upload-overlay hidden">
+        <div class="upload-modal">
+            <div class="upload-header">
+                <h3>Upload Files</h3>
+                <button class="close-upload"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="drop-zone">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Drag & Drop files here or <span>Browse</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
