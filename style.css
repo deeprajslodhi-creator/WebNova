@@ -11,3 +11,17 @@
     display: flex;
     justify-content: center;
  }
+ .btn{
+   background-color: aqua;
+   border: 0.15em solid black;
+   border-radius: 5px;
+   padding-left: 2em;
+   padding-right: 2em;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+   font-size: 1em;
+   font-weight: 600;
+   display: flex;
+   justify-self: center;
+
+ }
