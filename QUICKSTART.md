@@ -1,199 +1,254 @@
-# CloudBox - Quick Start Guide 🚀
+# 🚀 Quick Start Guide - School Management System
 
-Welcome to **CloudBox**, your premium cloud storage application!
+## Prerequisites Check
+Before starting, make sure you have:
+- ✅ Node.js installed (v14 or higher) - Check: `node --version`
+- ✅ MongoDB installed and running - Check: `mongod --version`
+- ✅ npm installed - Check: `npm --version`
 
----
+## Installation Steps (5 Minutes)
 
-## 📱 **Application Pages**
-
-### 1. **Login Page** (`login.html`)
-- Start here - your gateway to the app
-- Clean authentication interface
-- Redirects to main dashboard after login
-
-### 2. **Registration Page** (`register.html`)
-- New user signup
-- Validates email and password
-- Offers 20GB free storage
-
-### 3. **Dashboard** (`index.html`) 
-- **Main homepage** after login
-- Shows Quick Access cards (Music, Images, Videos, Docs)
-- Recent Files table
-- Upload button -> Opens drag & drop modal
-- Storage usage widget in sidebar
-
-### 4. **My Files** (`files.html`)
-- Complete file browser
-- Folder categories
-- Comprehensive file listing
-- Upload functionality
-
-### 5. **Profile/Settings** (`profile.html`)
-- User profile management
-- Account settings form
-- Security options
-- App preferences
-
-### 6. **Storage & Pricing** (`storage.html`)
-- View available plans (Basic, Pro, Team)
-- Pricing comparison
-- Upgrade options
-
----
-
-## ✨ **Key Features**
-
-### 🎨 **Theme System**
--Click the **Moon/Sun icon** in the top- bar
-- Switches between Light & Dark modes
-- Selection saved in localStorage
-
-### 📤 **File Upload**
-1. Click "New Upload" button
-2. Upload modal appears
-3. **Drag & drop** files OR click "Browse"
-4. Files appear in table with animation
-
-### 🔐 **Logout**
-- Click "Logout" in sidebar
-- Confirmation dialog appears
-- Returns to login page
-
-### 📱 **Mobile Responsive**
-- **Desktop**: Full sidebar + content
-- **Tablet (900px)**: Icon-only sidebar
-- **Mobile (768px)**: Hamburger menu
-
----
-
-## 🎯 **User Flow**
-
+### Step 1: Install Dependencies
+```bash
+npm install
 ```
-login.html (Start)
-    ↓
-index.html (Dashboard)
-    ├→ files.html (Browse all files)
-    ├→ profile.html (Settings)
-    ├→ storage.html (Upgrade)
-    └→ login.html (Logout)
+This will install all required packages (Express, MongoDB, JWT, etc.)
+
+### Step 2: Start MongoDB
+Make sure MongoDB is running:
+
+**Windows:**
+```bash
+# Start MongoDB service
+net start MongoDB
+
+# Or run mongod directly
+mongod
 ```
 
----
-
-## 🛠️ **Testing the App**
-
-### Open in Browser
-1. Double-click `login.html`
-2. Or open with: `Ctrl + O` → Select `login.html`
-
-### Test Flow
-1. ✅ Login page loads
-2. ✅ Click form submit → Go to `index.html`
-3. ✅ Toggle theme (Moon/Sun icon)
-4. ✅ Click "New Upload" → Modal appears
-5. ✅ Drag file → Adds to table
-6. ✅ Navigate to "My Files" → `files.html` loads
-7. ✅ Go to Profile → `profile.html` loads
-8. ✅ Click "Save Changes" → Alert appears
-9. ✅ Visit Storage page → Pricing cards show
-10. ✅ Click Logout → Confirmation → Returns to login
-
----
-
-## 🐛 **Troubleshooting**
-
-### Icons not loading?
-- Check internet connection (FontAwesome CDN)
-- Reload page
-
-### Theme not saving?
-- Enable localStorage in browser
-- Check browser console for errors
-
-### Files not uploading?
-- This is a **front-end simulation only**
-- Real backend needed for actual storage
-
-### Mobile menu not working?
-- Check screen width < 768px
-- Click hamburger icon (top-left)
-
----
-
-## 📂 **File Structure**
-
-```
-SKS_Class_7TH/
-├── index.html          (Dashboard - START HERE)
-├── login.html          (Authentication)
-├── register.html       (Sign up)
-├── files.html          (File browser)
-├── profile.html        (User settings)
-├── storage.html        (Pricing)
-├── style.css           (Complete styling)
-├── script.js           (Interactive logic)
-└── README.md           (Full documentation)
+**Linux/Mac:**
+```bash
+sudo systemctl start mongod
 ```
 
----
-
-## ⚡ **Performance Tips**
-
-- **Fast Loading**: No external frameworks
-- **Smooth Animations**: Hardware-accelerated CSS
-- **Optimized**: Vanilla JS for speed
-
----
-
-## 🎨 **Customization**
-
-### Change Brand Color:
-Edit `style.css` line 10:
-```css
---accent-color: #4f46e5; /* Your color */
+### Step 3: Setup Database with Sample Data
+Run the setup script to create admin user and sample data:
+```bash
+node setup-database.js
 ```
 
-### Add New Page:
-1. Copy any `.html` file
-2. Update content
-3. Add link in sidebar
+This will create:
+- ✅ 1 Admin user
+- ✅ 2 Teachers
+- ✅ 5 Students
+- ✅ 2 Classes (Class 7A and Class 8A)
+
+### Step 4: Start the Server
+```bash
+# Development mode (recommended)
+npm run dev
+
+# OR Production mode
+npm start
+```
+
+Server will start at: **http://localhost:5000**
+
+### Step 5: Open in Browser
+Navigate to: **http://localhost:5000**
+
+## 🔑 Default Login Credentials
+
+### Admin Login
+- **Username:** admin
+- **Password:** admin123
+- **Role:** Admin
+
+### Teacher Login
+- **Username:** teacher1
+- **Password:** teacher123
+- **Role:** Teacher
+
+### Student Login
+- **Username:** student1
+- **Password:** student123
+- **Role:** Student
+
+## 🎯 What to Try First
+
+### As Admin:
+1. ✅ Login with admin credentials
+2. ✅ View Dashboard (see statistics)
+3. ✅ Go to Students → View all students
+4. ✅ Click "Add Student" to create a new student
+5. ✅ Go to Classes → View class details
+6. ✅ Go to Fees → Create fee structure
+7. ✅ Toggle Dark Mode (moon icon in header)
+
+### As Teacher:
+1. ✅ Login with teacher credentials
+2. ✅ Go to Attendance → Mark attendance
+3. ✅ Go to Exams → Create new exam
+4. ✅ Add exam results for students
+
+### As Student:
+1. ✅ Login with student credentials
+2. ✅ View your profile
+3. ✅ Check attendance records
+4. ✅ View exam results
+5. ✅ Check fee status
+
+## 📱 Features to Explore
+
+### Student Management
+- Add new students (auto-generates Student ID)
+- Edit student information
+- View student profiles
+- Delete students
+
+### Teacher Management
+- Add teachers (auto-generates Teacher ID)
+- Assign subjects to teachers
+- View teacher list
+
+### Class Management
+- Create classes
+- Assign class teachers
+- Add students to classes
+- Promote students to next class
+
+### Attendance System
+- Mark daily attendance
+- View attendance by class
+- View attendance by student
+- Check attendance summaries (daily/weekly/monthly)
+
+### Exam & Results
+- Create exams
+- Add student marks
+- Auto-calculate percentage and grades
+- Export results as JSON
+
+### Fee Management
+- Create fee structures
+- Record payments
+- Generate receipts (auto-generated receipt numbers)
+- View due fees
+
+## 🎨 UI Features
+
+- **Dark Mode:** Click moon/sun icon in header
+- **Responsive:** Works on mobile, tablet, and desktop
+- **Charts:** Attendance trends visualization
+- **Notifications:** Toast messages for actions
+- **Search:** Search functionality in header
+
+## 🐛 Common Issues & Solutions
+
+### Issue 1: MongoDB Connection Error
+```
+Error: connect ECONNREFUSED 127.0.0.1:27017
+```
+**Solution:** Start MongoDB service
+```bash
+# Windows
+net start MongoDB
+
+# Linux/Mac
+sudo systemctl start mongod
+```
+
+### Issue 2: Port 5000 Already in Use
+```
+Error: listen EADDRINUSE :::5000
+```
+**Solution:** Change port in `.env` file:
+```
+PORT=3000
+```
+
+### Issue 3: Cannot Login
+**Solution:** 
+1. Make sure you ran `node setup-database.js`
+2. Check MongoDB is running
+3. Clear browser cache and try again
+
+### Issue 4: "npm install" Fails
+**Solution:**
+```bash
+# Clear npm cache
+npm cache clean --force
+
+# Delete node_modules and package-lock.json
+rm -rf node_modules package-lock.json
+
+# Reinstall
+npm install
+```
+
+## 📂 Project Structure Overview
+
+```
+├── models/          # Database models (User, Student, Teacher, etc.)
+├── routes/          # API endpoints
+├── middleware/      # Authentication middleware
+├── public/          # Frontend files (HTML, CSS, JS)
+├── sample-data/     # Sample JSON data
+├── server.js        # Main server file
+└── setup-database.js # Database setup script
+```
+
+## 🔧 Development Tips
+
+### Auto-reload on Changes
+Use `npm run dev` for automatic server restart on file changes (requires nodemon)
+
+### View Database
+Use MongoDB Compass to view database:
+```
+Connection String: mongodb://localhost:27017/school_management
+```
+
+### API Testing
+Use Postman or Thunder Client to test API endpoints:
+```
+Base URL: http://localhost:5000/api
+```
+
+### Check Logs
+Server logs will show in the terminal:
+- ✅ MongoDB connection status
+- ✅ API requests
+- ✅ Errors and warnings
+
+## 📚 Next Steps
+
+1. **Customize:** Modify colors, logos, and branding in `public/css/style.css`
+2. **Add Features:** Extend functionality in routes and models
+3. **Deploy:** Follow deployment guide in README.md
+4. **Secure:** Change JWT_SECRET in production
+5. **Backup:** Setup regular MongoDB backups
+
+## 🆘 Need Help?
+
+- 📖 Read full documentation in `README.md`
+- 🐛 Check troubleshooting section
+- 💬 Create an issue on GitHub
+- 📧 Contact support
+
+## ✅ Checklist
+
+Before going to production:
+- [ ] Change JWT_SECRET in .env
+- [ ] Setup MongoDB Atlas (cloud database)
+- [ ] Enable HTTPS
+- [ ] Setup proper CORS policy
+- [ ] Add rate limiting
+- [ ] Setup logging
+- [ ] Create backups
+- [ ] Test all features
+- [ ] Update default passwords
 
 ---
 
-## 📌 **Important Notes**
-
-⚠️ **This is a Front-End Demo**
-- No real authentication system
-- Files are simulated (not actually stored)
-- For educational/UI demonstration purposes
-
-✅ **For Production Use:**
-- Add backend (Node.js, Firebase, etc.)
-- Implement real auth (JWT, OAuth)
-- Connect to cloud storage (AWS S3, etc.)
-- Add database (MongoDB, PostgreSQL)
-
----
-
-## 🚀 **Next Steps**
-
-1. Open `login.html` in your browser
-2. Explore all pages
-3. Test dark/light themes
-4. Try uploading files
-5. Check responsiveness (resize window)
-
----
-
-## 💡 **Tips**
-
-- **Best viewed in**: Chrome, Firefox, Edge (latest)
-- **Recommended resolution**: 1920x1080 or higher
-- **Mobile testing**: Use browser DevTools (F12)
-
----
-
-**Enjoy CloudBox! 🎉**
-
-For full documentation, see `README.md`
+**🎉 You're all set! Start managing your school efficiently!**
