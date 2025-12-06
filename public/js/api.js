@@ -1,9 +1,14 @@
 /**
- * API Configuration and Helper Functions
- * Handles all HTTP requests to the backend API
+ * API Configuration for Production
+ * This file will be used when deployed on GitHub Pages
+ * Backend API will be hosted on Render.com
  */
 
-const API_BASE_URL = 'http://localhost:5000/api';
+// Production API URL (Render.com)
+const API_BASE_URL = 'https://sks-school-management.onrender.com/api';
+
+// For local development, use:
+// const API_BASE_URL = 'http://localhost:5000/api';
 
 // Get auth token from localStorage
 const getAuthToken = () => {
@@ -12,7 +17,7 @@ const getAuthToken = () => {
 
 // Set auth token in localStorage
 const setAuthToken = (token) => {
-    localStorage.setItem('authToken');
+    localStorage.setItem('authToken', token);
 };
 
 // Remove auth token

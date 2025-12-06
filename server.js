@@ -20,8 +20,19 @@ const dashboardRoutes = require('./routes/dashboard');
 
 const app = express();
 
+// CORS Configuration - Allow GitHub Pages
+const corsOptions = {
+    origin: [
+        'http://localhost:5000',
+        'http://localhost:3000',
+        'https://deeprajslodhi-creator.github.io'
+    ],
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
