@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKS Calculator | Under Development</title>
+    <title>SKS Calculator</title>
     <style>
         * {
             margin: 0;
@@ -22,37 +22,7 @@
             padding: 20px;
         }
 
-        /* Under Development Banner */
-        .dev-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            animation: slideDown 0.5s ease-out;
-        }
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        .dev-banner .emoji {
-            font-size: 20px;
-            margin: 0 5px;
-        }
 
         .calculator {
             background: rgba(255, 255, 255, 0.95);
@@ -63,7 +33,7 @@
             width: 100%;
             max-width: 400px;
             animation: slideUp 0.5s ease-out;
-            margin-top: 60px;
+
         }
 
         @keyframes slideUp {
@@ -180,7 +150,7 @@
 
         .theme-toggle {
             position: fixed;
-            top: 80px;
+            top: 20px;
             right: 20px;
             background: rgba(255, 255, 255, 0.2);
             border: none;
@@ -242,13 +212,6 @@
 </head>
 
 <body>
-    <div class="dev-banner">
-        <span class="emoji">🚧</span>
-        <strong>UNDER DEVELOPMENT</strong>
-        <span class="emoji">🚧</span>
-        <span style="margin-left: 10px;">Website is being developed. Stay tuned!</span>
-    </div>
-
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
     <div class="calculator">
