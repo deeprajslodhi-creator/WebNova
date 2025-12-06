@@ -1,0 +1,29 @@
+[
+    {
+        "username": "admin",
+        "email": "admin@school.com",
+        "password": "admin123",
+        "role": "admin",
+        "fullName": "Admin User",
+        "phone": "1234567890",
+        "address": "School Address"
+    },
+    {
+        "username": "teacher1",
+        "email": "teacher1@school.com",
+        "password": "teacher123",
+        "role": "teacher",
+        "fullName": "John Smith",
+        "phone": "9876543210",
+        "address": "Teacher Address 1"
+    },
+    {
+        "username": "student1",
+        "email": "student1@school.com",
+        "password": "student123",
+        "role": "student",
+        "fullName": "Alice Johnson",
+        "phone": "5555555555",
+        "address": "Student Address 1"
+    }
+]
