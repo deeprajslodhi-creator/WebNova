@@ -118,13 +118,3 @@ Thumbs.db
 # Uploads
 uploads/
 public/uploads/
-
-# Old project files (not part of School Management System)
-/index.html
-/login.html
-/register.html
-/profile.html
-/files.html
-/storage.html
-/style.css
-/script.js
