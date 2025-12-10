@@ -1,4 +1,4 @@
-# 🧮 SKS Calculator
+# 🧮 Web Nova
 
 **Modern & Beautiful Calculator**
 
